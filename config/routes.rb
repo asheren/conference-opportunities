@@ -4,5 +4,6 @@ Rails.application.routes.draw do
     resource :approval, only: [:create], module: :conferences
   end
   resource :approval, only: [:show]
+  resources :styles, only: [:index]
   root to: 'conferences#index'
 end

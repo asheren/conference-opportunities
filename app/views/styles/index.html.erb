@@ -1,0 +1,13 @@
+<header><h1>Conference Opportunities Style Guide</h1></header>
+
+<% @styles.each do |section| %>
+<section id="<%= section.name %>">
+  <header><h2><%= section.name %></h2></header>
+  <% section.styles.each do |style| %>
+    <section id="<%= section.name %>-<%= style.name %>">
+      <header><h3><%= style.name %></h3></header>
+      <article><%= render file: style.path %></article>
+    </section>
+  <% end %>
+</section>
+<% end %>
