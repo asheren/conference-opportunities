@@ -11,13 +11,17 @@ class ConferencesController < ApplicationController
   end
 
   def edit
-    @conference = current_conference
-    authorize @conference
+    authorize current_conference
+    if current_conference.approved_at?
+      redirect_to current_conference
+    else
+      redirect_to new_conference_approval_path(current_conference)
+    end
   end
 
   private
 
   def current_conference
-    Conference.find_by_twitter_handle!(params[:id])
+    @current_conference ||= Conference.find_by_twitter_handle!(params[:id])
   end
 end

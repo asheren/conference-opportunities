@@ -2,21 +2,21 @@
   <h2>List your conference</h2>
 </header>
 
-<%= form_for(@conference, url: conference_approval_path(@conference), method: "post") do |f| %>
+<%= form_for(@conference_approval, method: "post") do |f| %>
   <section class="inputs">
     <fieldset>
-      <%= f.label :name, 'Conference name' %>
+      <%= f.label :name, "Conference name" %>
       <%= f.text_field :name %>
 
-      <%= f.label :website_url, 'Website' %>
+      <%= f.label :website_url, "Website" %>
       <%= f.text_field :website_url %>
 
-      <%= f.label :twitter_handle, 'Twitter handle' %>
+      <%= f.label :twitter_handle, "Twitter handle" %>
       <%= f.text_field :twitter_handle, disabled: true %>
     </fieldset>
 
     <figure>
-      <%= image_tag @conference.logo_url %>
+      <%= image_tag @conference_approval.logo_url %>
     </figure>
   </section>
 
