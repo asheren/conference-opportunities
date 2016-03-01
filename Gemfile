@@ -30,6 +30,7 @@ group :test do
   gem 'chromedriver-helper'
   gem 'codeclimate-test-reporter', require: nil
   gem 'database_cleaner'
+  gem 'launchy'
   gem 'phantomjs', require: 'phantomjs/poltergeist'
   gem 'poltergeist'
   gem 'rspec-rails'
