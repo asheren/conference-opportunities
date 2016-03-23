@@ -34,6 +34,10 @@ ActiveRecord::Schema.define(version: 20160321182838) do
     t.boolean  "has_lodging_funding"
     t.boolean  "has_honorariums"
     t.boolean  "has_diversity_scholarships"
+    t.boolean  "has_childcare"
+    t.string   "code_of_conduct_url"
+    t.datetime "speaker_notification_deadline"
+    t.string   "hashtag"
   end
 
   add_index "conferences", ["twitter_handle"], name: "index_conferences_on_twitter_handle", unique: true, using: :btree
