@@ -9,6 +9,43 @@
   .twitter-link
     = link_to @conference.twitter_name, @conference.twitter_url
 
+  %dl
+    %dt CFP deadline
+    %dd= @conference.cfp_deadline
+
+    %dt CFP URL
+    %dd= @conference.cfp_url
+
+    %dt Conference begin date
+    %dd= @conference.begin_date
+
+    %dt Conference end date
+    %dd= @conference.end_date
+
+    %dt Speaker travel funding provided
+    %dd= @conference.has_travel_funding
+
+    %dt Speaker lodging funding provided
+    %dd= @conference.has_lodging_funding
+
+    %dt Speaker honorarium provided
+    %dd= @conference.has_honorariums
+
+    %dt Diversity scholarships available
+    %dd= @conference.has_diversity_scholarships
+
+    %dt Childcare available
+    %dd= @conference.has_childcare
+
+    %dt Code of conduct URL
+    %dd= @conference.code_of_conduct_url
+
+    %dt Speaker notification deadline
+    %dd= @conference.speaker_notification_deadline
+
+    %dt Hashtag
+    %dd= @conference.hashtag
+
   %section
     = render partial: "twitter"
     = render @conference.tweets
