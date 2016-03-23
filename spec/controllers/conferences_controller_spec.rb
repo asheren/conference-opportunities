@@ -104,17 +104,23 @@ RSpec.describe ConferencesController do
     context "organizer is authorized" do
       before { sign_in :organizer, organizer }
       let(:cfp_deadline) { DateTime.parse "Oct 1, 2016" }
+      let(:speaker_notification_deadline) { DateTime.parse "Oct 8, 2016" }
       let(:begin_date) { DateTime.parse "Apr 1, 2016" }
+      let(:end_date) { DateTime.parse "Apr 4, 2016" }
       let(:end_date) { DateTime.parse "Apr 4, 2016" }
       let(:conference_info) do
         {
           id: twitter_handle,
           name: "Most excellent conf",
+          hashtag: "#excellentconf",
           website_url: "http://most-excellent-conf.example.com",
           cfp_deadline: cfp_deadline,
           cfp_url: "http://most-excellent-conf.example.com/cfp",
+          speaker_notification_deadline: speaker_notification_deadline,
           begin_date: begin_date,
           end_date: end_date,
+          code_of_conduct_url: "http://most-excellent-conf.example.com/cfp",
+          has_childcare: true,
           has_travel_funding: true,
           has_lodging_funding: true,
           has_honorariums: true,
@@ -194,6 +200,26 @@ RSpec.describe ConferencesController do
         it "updates the diversity scholarships" do
           expect { send_patch }.
             to change { conference.reload.has_diversity_scholarships }
+        end
+
+        it "updates the childcare" do
+          expect { send_patch }.
+            to change { conference.reload.has_childcare }
+        end
+
+        it "updates the code of conduct URL" do
+          expect { send_patch }.
+            to change { conference.reload.code_of_conduct_url }
+        end
+
+        it "updates the speaker notification deadline" do
+          expect { send_patch }.
+            to change { conference.reload.speaker_notification_deadline }
+        end
+
+        it "updates the conference hashtag" do
+          expect { send_patch }.
+            to change { conference.reload.hashtag }
         end
       end
     end

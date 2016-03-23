@@ -30,9 +30,9 @@ class ConferencesController < ApplicationController
 
   def conference_params
     params.require(:conference).
-    permit(:cfp_deadline, :cfp_url, :begin_date, :end_date, :has_travel_funding,
-     :has_lodging_funding, :has_honorariums, :has_diversity_scholarships, :name,
-     :website_url)
+    permit(:cfp_deadline, :cfp_url, :begin_date, :end_date, :has_childcare,
+           :has_travel_funding, :has_lodging_funding, :has_honorariums,
+           :has_diversity_scholarships, :name, :website_url,
+           :code_of_conduct_url, :speaker_notification_deadline, :hashtag)
   end
-
 end
