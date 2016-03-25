@@ -11,20 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160321182838) do
+ActiveRecord::Schema.define(version: 20160325202259) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "conferences", force: :cascade do |t|
-    t.string   "twitter_handle",             null: false
+    t.string   "twitter_handle",                null: false
     t.string   "logo_url"
     t.string   "name"
     t.string   "location"
     t.string   "website_url"
     t.text     "description"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.datetime "approved_at"
     t.datetime "cfp_deadline"
     t.string   "cfp_url"
